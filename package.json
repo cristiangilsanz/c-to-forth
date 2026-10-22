@@ -1,0 +1,31 @@
+{
+  "name": "c-to-forth",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A compiler that translates a subset of C into Lisp and then into Forth, with a web playground that runs both",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "lint": "biome check ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/node": "^20.17.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.4.5",
+    "vitest": "^4.1.12"
+  },
+  "dependencies": {
+    "@codemirror/lang-cpp": "^6.0.2",
+    "@codemirror/language": "^6.11.0",
+    "@codemirror/legacy-modes": "^6.5.1",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@codemirror/view": "^6.36.8",
+    "codemirror": "^6.0.1"
+  }
+}

@@ -1,0 +1,2 @@
+*** - PROBE-PATHNAME: wildcards are not allowed here: #P"*.lisp"
+

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" width="640" height="160">
+  <path d="M120 80h400" stroke="#3a4152" stroke-width="6" stroke-linecap="round"/>
+  <g font-family="'JetBrains Mono', Consolas, monospace" font-weight="700" text-anchor="middle">
+    <circle cx="120" cy="80" r="52" fill="#5b9cff"/>
+    <text x="120" y="98" font-size="52" fill="#0d1016">C</text>
+    <circle cx="320" cy="80" r="52" fill="#c38bff"/>
+    <text x="320" y="98" font-size="52" fill="#0d1016">λ</text>
+    <circle cx="520" cy="80" r="52" fill="#ffb454"/>
+    <text x="520" y="96" font-size="40" fill="#0d1016">: ;</text>
+  </g>
+</svg>
