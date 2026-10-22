@@ -1,0 +1,31 @@
+(defun main ()
+  (let* ((i 0)
+         (n 0)
+         (steps 0)
+         (found 0)
+         (k 0))
+    (format t "Odd numbers up to 12:")
+    (setf i 0)
+    (loop do
+      (block continue
+        (when (> i 12) (return))
+        (when (= (rem i 2) 0) (return-from continue))
+        (format t " ~d" i))
+      (incf i))
+    (format t "~%")
+    (setf n 27)
+    (setf steps 0)
+    (loop do
+      (setf n (if (/= (rem n 2) 0) (+ (* 3 n) 1) (truncate n 2)))
+      (incf steps) while (/= n 1))
+    (format t "Collatz steps from 27: ~d~%" steps)
+    (setf found -1)
+    (setf k 1)
+    (loop do
+      (when (> (* k k) 500)
+        (setf found k)
+        (return))
+      (incf k))
+    (format t "First square above 500: ~d^2~%" found)))
+
+(main)

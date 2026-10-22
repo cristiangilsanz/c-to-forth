@@ -1,0 +1,27 @@
+(setq values_ (make-array 8 :initial-element 0))
+
+(defun show ()
+  (dotimes (i 8)
+    (format t "~d " (aref values_ i)))
+  (format t "~%"))
+
+(defun main ()
+  (let* ((seed 7)
+         (swapped 0)
+         (held 0))
+    (dotimes (i 8)
+      (setf seed (rem (+ (* seed 31) 11) 97))
+      (setf (aref values_ i) seed))
+    (show)
+    (setf swapped 1)
+    (loop while (/= swapped 0) do
+      (setf swapped 0)
+      (dotimes (i 7)
+        (when (> (aref values_ i) (aref values_ (+ i 1)))
+          (setf held (aref values_ i))
+          (setf (aref values_ i) (aref values_ (+ i 1)))
+          (setf (aref values_ (+ i 1)) held)
+          (setf swapped 1))))
+    (show)))
+
+(main)

@@ -1,0 +1,268 @@
+:root {
+  --bg: #0d1016;
+  --panel: #14181f;
+  --panel-2: #1a1f28;
+  --border: #262c38;
+  --text: #d7dce5;
+  --muted: #8a93a6;
+  --c: #5b9cff;
+  --lisp: #c38bff;
+  --forth: #ffb454;
+  --good: #4fd18b;
+  --bad: #ff6b6b;
+  --mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+}
+
+.brand em {
+  font-style: normal;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.brand {
+  margin-right: auto;
+}
+
+.pane.c .dot {
+  background-color: var(--c);
+}
+
+.pane.lisp .dot {
+  background-color: var(--lisp);
+}
+
+.pane.forth .dot {
+  background-color: var(--forth);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+select,
+button,
+.github {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-2);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.github {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+select:hover,
+button:hover,
+.github:hover {
+  border-color: #3a4256;
+}
+
+.workspace {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 12px;
+  min-height: 0;
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.pane > header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pane > header small {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.editor {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #282c34;
+}
+
+.console {
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.console h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.console pre {
+  flex: 1;
+  margin: 0;
+  padding: 0 14px 12px;
+  overflow: auto;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.console pre.failed {
+  color: var(--bad);
+}
+
+.status {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.status.good {
+  color: var(--good);
+  background: rgba(79, 209, 139, 0.12);
+}
+
+.status.bad {
+  color: var(--bad);
+  background: rgba(255, 107, 107, 0.12);
+}
+
+.footnote {
+  padding: 0 20px 12px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  body {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 999px) {
+  .topbar {
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .picker {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .picker select {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .workspace {
+    flex: none;
+    grid-template-columns: 1fr;
+    padding: 12px 16px;
+  }
+
+  .editor {
+    height: 340px;
+    flex: none;
+  }
+
+  .console {
+    height: 150px;
+  }
+}

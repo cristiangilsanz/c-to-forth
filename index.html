@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Compile a subset of C into Lisp and then into Forth, and run both in your browser." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>C to Forth</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./">
+        <img src="favicon.svg" alt="" width="28" height="28" />
+        <span>C <em>to</em> Forth</span>
+      </a>
+      <div class="actions">
+        <label class="picker">
+          <span>Example</span>
+          <select id="examples"></select>
+        </label>
+        <button id="share" type="button">Copy link</button>
+        <a class="github" href="https://github.com/cristiangilsanz/c-to-forth" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="pane c">
+        <header><span class="dot"></span>C <small>edit me</small></header>
+        <div id="c-editor" class="editor"></div>
+        <div class="console">
+          <h2>Problems</h2>
+          <pre id="problems"></pre>
+        </div>
+      </section>
+      <section class="pane lisp">
+        <header><span class="dot"></span>Lisp <small>edit me too</small></header>
+        <div id="lisp-editor" class="editor"></div>
+        <div class="console">
+          <h2>Output <span id="lisp-status" class="status"></span></h2>
+          <pre id="lisp-output"></pre>
+        </div>
+      </section>
+      <section class="pane forth">
+        <header><span class="dot"></span>Forth <small>edit me too</small></header>
+        <div id="forth-editor" class="editor"></div>
+        <div class="console">
+          <h2>Output <span id="forth-status" class="status"></span></h2>
+          <pre id="forth-output"></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footnote">
+      Both outputs come from small Lisp and Forth interpreters running in this page. The test suite checks
+      them against clisp, gforth and gcc.
+    </footer>
+    <script type="module" src="/src/web/main.ts"></script>
+  </body>
+</html>
